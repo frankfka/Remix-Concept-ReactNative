@@ -1,10 +1,11 @@
 import * as React from 'react';
-import {Text, View} from 'react-native';
+import Box from "../components/Box";
+import Post from "../components/post/Post";
 
 export default function TabOneScreen() {
   return (
-    <View>
-      <Text>Tab One</Text>
-    </View>
+    <Box flex="1" backgroundColor='backgroundPrimary'>
+      <Post/>
+    </Box>
   );
 }
