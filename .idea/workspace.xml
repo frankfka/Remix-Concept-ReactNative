@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa183a04-e048-4812-b3a5-0f9de7e0f087" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Box.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/RoundedBorderContainer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Text.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/post/Post.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Post.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/CircularImage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Icon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/RoundedTextButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Spacer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/SpaceMono-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RoundedBorderContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/post/Post.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/Theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Theme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useCachedResources.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useCachedResources.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/TabOneScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/TabOneScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/TabTwoScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/TabTwoScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +54,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -87,7 +88,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607019911067</updated>
-      <workItem from="1607019913167" duration="13216000" />
+      <workItem from="1607019913167" duration="20605000" />
     </task>
     <servers />
   </component>

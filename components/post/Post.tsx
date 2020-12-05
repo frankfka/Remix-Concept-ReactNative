@@ -1,91 +1,94 @@
-import RoundedBorderContainer from "../RoundedBorderContainer";
+import Container from "../Container";
 import * as React from "react";
-import {Button, Image, ImageSourcePropType, TouchableOpacity} from 'react-native';
+import {Image, TouchableOpacity} from 'react-native';
 import Box from "../Box";
 import Text from "../Text";
-import {backgroundColor} from "@shopify/restyle";
-import {AntDesign, FontAwesome, Ionicons} from "@expo/vector-icons";
+import RoundedTextButton from "../RoundedTextButton";
+import CircularImage from '../CircularImage';
+import { LoremIpsum } from "lorem-ipsum";
+import {CommentIcon, LikeIcon} from '../Icon';
+import Spacer from '../Spacer';
+import {BoxProps} from '@shopify/restyle';
+import {Theme} from '../../constants/Theme';
 
-interface CircleImageProps {
-  source: ImageSourcePropType,
-  size: number
+const textGenerator = new LoremIpsum()
+
+const profileName = textGenerator.generateWords(3).replaceAll(' ', '').substring(0, 10);
+const postDescription = textGenerator.generateSentences(3);
+const numLikes = Math.floor(Math.random() * 100);
+const numComments = Math.floor(Math.random() * 100);
+
+const followPressed = () => {
+  console.log('Follow Pressed')
 }
-const CircleImage = ({source, size}: CircleImageProps) => {
+const viewCommentsPressed = () => {
+  console.log('View comments pressed')
+}
+
+const TopSection = (props: BoxProps<Theme>) => {
+  return (
+    <Box {...props} flexDirection='row' alignItems='center'>
+      <CircularImage
+        size={24}
+        source={{ uri: "https://source.unsplash.com/random"}}
+      />
+      <Text marginHorizontal='s' variant='subtext' fontWeight={'bold'} color={'textPrimary'}>{profileName}</Text>
+      <RoundedTextButton label='Follow' onPress={followPressed} variant={'small'}/>
+    </Box>
+  )
+}
+
+const PostImage = () => {
   return (
     <Image
+      source={{ uri: "https://source.unsplash.com/random" }}
+      resizeMode={'contain'}
       style={{
-        width: size,
-        height: size,
-        borderRadius: size / 2,
+        minHeight: 256
       }}
-      resizeMode={'cover'}
-      source={source}
     />
   )
 }
 
-interface ButtonProps {
-  title: string,
-  onPress: () => void,
-}
-
-const RoundedButton = ({ title, onPress }: ButtonProps) => {
+const BottomSection = (props: BoxProps<Theme>) => {
   return (
-    <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
-      <RoundedBorderContainer paddingHorizontal='m' variant='button'>
-        <Text variant='subtext' color='textAccent'>
-          {title}
+    <Box {...props}>
+      {/*Likes & actions*/}
+      <Box flexDirection='row' alignItems='center'>
+        <Text variant={'body'} color={'textSecondary'}>Liked by snowdevil and {numLikes} others</Text>
+        <Spacer/>
+        <CommentIcon marginRight={'s'}/>
+        <LikeIcon/>
+      </Box>
+
+      {/*Description*/}
+      <Text marginVertical={'s'}>
+        <Text variant={'body'} fontWeight={'bold'} marginRight={'s'}>
+          {profileName}&nbsp;&nbsp;
         </Text>
-      </RoundedBorderContainer>
-    </TouchableOpacity>
+        <Text>
+          {postDescription}
+        </Text>
+      </Text>
+
+      {/*View comments*/}
+      <Box>
+        <TouchableOpacity onPress={viewCommentsPressed}>
+          <Text variant={'body'} color={'textAccent'}>
+            View {numComments} comments
+          </Text>
+        </TouchableOpacity>
+      </Box>
+    </Box>
   )
 }
 
 export default function Post() {
   return (
-    <RoundedBorderContainer>
-      <Box flexDirection='row' alignItems='center' padding='s'>
-        <CircleImage
-          size={24}
-          source={{ uri: "https://s-media-cache-ak0.pinimg.com/736x/43/cd/6e/43cd6e82491bf130d97624c198ee1a3f--funny-movie-quotes-funny-movies.jpg"}}
-        />
-        <Text marginHorizontal='s' variant='subtext' fontWeight={'bold'} color={'textPrimary'}>frankjia</Text>
-        <RoundedButton title='Follow' onPress={() => {console.log('Follow Pressed')}}/>
-      </Box>
-      <Image
-        source={{ uri: "https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Champion-x-Super-Mario-Bros-Toad-Light-Pink-Hoodie-_335096-front-US.jpg" }}
-        resizeMode={'contain'}
-        style={{
-          minHeight: 256
-        }}
-      />
-      <Box>
-        <Box flexDirection='row' alignItems='center'>
-          <Text marginHorizontal='s' variant={'body'} color={'textSecondary'}>Liked by snowdevil and 27 others</Text>
-          <Box flex={1}/>
-          <Box marginHorizontal={'s'}>
-            <FontAwesome name="comment-o" size={24} color="green" />
-          </Box>
-          <FontAwesome name="heart-o" size={24} color="green" />
-        </Box>
-        <Box>
-          <Text>
-            <Text variant={'body'} fontWeight={'bold'} marginRight={'s'}>
-              frankjia
-            </Text>
-            <Text>
-              night time adventures #vans #santacruz
-            </Text>
-          </Text>
-        </Box>
-        <Box>
-          <TouchableOpacity>
-            <Text variant={'subtext'} color={'textAccent'}>
-              View 2 comments
-            </Text>
-          </TouchableOpacity>
-        </Box>
-      </Box>
-    </RoundedBorderContainer>
+    <Container variant={'section'}>
+      <TopSection padding={'s'}/>
+      <PostImage/>
+      <BottomSection padding={'s'} paddingBottom={'m'}/>
+    </Container>
   );
 }

@@ -5,7 +5,8 @@ const palette = {
   greenPrimary: '#008060',
 
   black: '#000000',
-  gray: '#8d8d8d', // TODO
+  gray: '#8d8d8d',
+  lightGray: '#C4C4C4',
   white: '#FFFFFF',
 };
 
@@ -17,7 +18,7 @@ const theme = createTheme({
     backgroundPrimary: palette.greenTint,
     backgroundContainer: palette.white,
 
-    borderContainer: palette.black,
+    borderContainer: palette.lightGray,
     borderAccent: palette.greenPrimary,
 
     textPrimary: palette.black,
@@ -69,8 +70,12 @@ const theme = createTheme({
       backgroundColor: 'backgroundContainer',
       borderColor: 'borderContainer'
     },
-    button: {
-      borderColor: 'borderAccent',
+    roundedButton: {
+    }
+  },
+  roundedButtonVariants: {
+    small: {
+
     }
   }
 });

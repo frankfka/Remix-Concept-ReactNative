@@ -1,11 +1,14 @@
 import * as React from 'react';
 import Box from "../components/Box";
 import Post from "../components/post/Post";
+import {ScrollView} from 'react-native';
 
 export default function TabOneScreen() {
   return (
-    <Box flex="1" backgroundColor='backgroundPrimary'>
-      <Post/>
-    </Box>
+      <ScrollView>
+        <Box flex="1" backgroundColor='backgroundPrimary' padding={'l'}>
+          <Post/>
+        </Box>
+      </ScrollView>
   );
 }

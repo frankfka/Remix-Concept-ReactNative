@@ -8,11 +8,11 @@ import React from "react";
 import Box from "./Box";
 
 type Props = VariantProps<Theme, 'containerVariants'> & React.ComponentProps<typeof Box>
-const RoundedBorderContainer = createRestyleComponent<Props, Theme>(
+const Container = createRestyleComponent<Props, Theme>(
   [
     createVariant({themeKey: 'containerVariants'})
   ],
   Box
 )
 
-export default RoundedBorderContainer
+export default Container
