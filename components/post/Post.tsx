@@ -1,58 +1,53 @@
-import Container from "../Container";
-import * as React from "react";
+import Container from '../Container';
+import * as React from 'react';
 import {Image, TouchableOpacity} from 'react-native';
-import Box from "../Box";
-import Text from "../Text";
-import RoundedTextButton from "../RoundedTextButton";
+import Box from '../Box';
+import Text from '../Text';
+import RoundedTextButton from '../RoundedTextButton';
 import CircularImage from '../CircularImage';
-import { LoremIpsum } from "lorem-ipsum";
+import {LoremIpsum} from 'lorem-ipsum';
 import {CommentIcon, LikeIcon} from '../Icon';
 import Spacer from '../Spacer';
-import {BoxProps} from '@shopify/restyle';
-import {Theme} from '../../constants/Theme';
 
-const textGenerator = new LoremIpsum()
+const textGenerator = new LoremIpsum();
 
-const profileName = textGenerator.generateWords(3).replaceAll(' ', '').substring(0, 10);
-const postDescription = textGenerator.generateSentences(3);
-const numLikes = Math.floor(Math.random() * 100);
-const numComments = Math.floor(Math.random() * 100);
+export default function Post() {
 
-const followPressed = () => {
-  console.log('Follow Pressed')
-}
-const viewCommentsPressed = () => {
-  console.log('View comments pressed')
-}
+  const profileName = textGenerator.generateWords(3).replaceAll(' ', '').substring(0, 10);
+  const postDescription = textGenerator.generateSentences(3);
+  const numLikes = Math.floor(Math.random() * 100);
+  const numComments = Math.floor(Math.random() * 100);
 
-const TopSection = (props: BoxProps<Theme>) => {
-  return (
-    <Box {...props} flexDirection='row' alignItems='center'>
+  const followPressed = () => {
+    console.log('Follow Pressed');
+  };
+  const viewCommentsPressed = () => {
+    console.log('View comments pressed');
+  };
+
+  const topSection = (
+    <Box flexDirection='row' alignItems='center' padding={'s'}>
       <CircularImage
         size={24}
-        source={{ uri: "https://source.unsplash.com/random"}}
+        source={{uri: 'https://source.unsplash.com/random'}}
       />
-      <Text marginHorizontal='s' variant='subtext' fontWeight={'bold'} color={'textPrimary'}>{profileName}</Text>
+      <Text marginHorizontal='s' variant={'subtextBold'} color={'textPrimary'}>{profileName}</Text>
       <RoundedTextButton label='Follow' onPress={followPressed} variant={'small'}/>
     </Box>
-  )
-}
+  );
 
-const PostImage = () => {
-  return (
+  const postImage = (
     <Image
-      source={{ uri: "https://source.unsplash.com/random" }}
+      source={{uri: 'https://source.unsplash.com/random'}}
       resizeMode={'contain'}
       style={{
-        minHeight: 256
+        minHeight: 256,
       }}
     />
-  )
-}
+  );
 
-const BottomSection = (props: BoxProps<Theme>) => {
-  return (
-    <Box {...props}>
+  const bottomSection = (
+    <Box padding={'s'} paddingBottom={'m'}>
       {/*Likes & actions*/}
       <Box flexDirection='row' alignItems='center'>
         <Text variant={'body'} color={'textSecondary'}>Liked by snowdevil and {numLikes} others</Text>
@@ -63,7 +58,7 @@ const BottomSection = (props: BoxProps<Theme>) => {
 
       {/*Description*/}
       <Text marginVertical={'s'}>
-        <Text variant={'body'} fontWeight={'bold'} marginRight={'s'}>
+        <Text variant={'bodyBold'} marginRight={'s'}>
           {profileName}&nbsp;&nbsp;
         </Text>
         <Text>
@@ -80,15 +75,13 @@ const BottomSection = (props: BoxProps<Theme>) => {
         </TouchableOpacity>
       </Box>
     </Box>
-  )
-}
+  );
 
-export default function Post() {
   return (
     <Container variant={'section'}>
-      <TopSection padding={'s'}/>
-      <PostImage/>
-      <BottomSection padding={'s'} paddingBottom={'m'}/>
+      {topSection}
+      {postImage}
+      {bottomSection}
     </Container>
   );
 }

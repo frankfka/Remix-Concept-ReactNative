@@ -39,26 +39,32 @@ const theme = createTheme({
   textVariants: {
     defaults: {
       fontFamily: 'roboto',
-      fontWeight: 'normal'
-    },
-    header: {
-      fontWeight: 'bold',
-      fontSize: 34,
-      lineHeight: 42.5,
       color: 'textPrimary',
     },
-    subheader: {
-      fontSize: 28,
-      lineHeight: 36,
-      color: 'textSecondary',
-    },
+    // header: {
+    //   fontWeight: 'bold',
+    //   fontSize: 34,
+    //   lineHeight: 42.5,
+    //   color: 'textPrimary',
+    // },
+    // subheader: {
+    //   fontSize: 28,
+    //   lineHeight: 36,
+    //   color: 'textSecondary',
+    // },
     body: {
       fontSize: 14,
-      color: 'textPrimary',
+    },
+    bodyBold: {
+      fontSize: 14,
+      fontFamily: 'roboto-bold',
     },
     subtext: {
       fontSize: 12,
-      color: 'textSecondary',
+    },
+    subtextBold: {
+      fontSize: 12,
+      fontFamily: 'roboto-bold',
     }
   },
   containerVariants: {

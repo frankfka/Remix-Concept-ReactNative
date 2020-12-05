@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
-import {Roboto_400Regular, Roboto_500Medium} from "@expo-google-fonts/roboto";
+import {Roboto_400Regular, Roboto_700Bold} from "@expo-google-fonts/roboto";
 
 export default function useCachedResources() {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -17,7 +17,7 @@ export default function useCachedResources() {
         await Font.loadAsync({
           ...Ionicons.font,
           'roboto': Roboto_400Regular,
-          'roboto-bold': Roboto_500Medium,
+          'roboto-bold': Roboto_700Bold,
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service
